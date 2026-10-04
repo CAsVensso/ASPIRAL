@@ -1,0 +1,2904 @@
+/* ============================= */
+/* BASIC */
+/* ============================= */
+
+@font-face {
+    font-family: "Minion Pro";
+    src: url("fonts/minionpro-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}@font-face {
+    font-family: "Lovelace";
+    src: url("fonts/zetafonts-lovelace-text-regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}@font-face {
+    font-family: "Mirra";
+    src: url("fonts/Mirra.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #eeeeee;
+
+    font-family: "Lovelace", serif;
+
+    overflow: hidden;
+}
+
+
+/* ============================= */
+/* NAVIGATION */
+/* ============================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 60px;
+
+    z-index: 100;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(7, 7, 7, 0.72);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* ASPIRAL logo */
+
+.logo {
+    font-size: 25px;
+    letter-spacing: 6px;
+
+    color: #eeeeee;
+}
+
+
+/* navigation */
+
+nav {
+    display: flex;
+    gap: 38px;
+}
+
+nav a {
+    position: relative;
+
+    color: #a8a8a8;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+
+/* small line under active/hovered link */
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: #8f1d28;
+
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ============================= */
+/* PAGES */
+/* ============================= */
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*
+    Пока JS ещё не подключён к навигации,
+    показываем только HOME.
+*/
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 120px 40px 60px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    z-index: 1;
+
+    transition:
+        opacity 0.65s ease,
+        visibility 0s linear 0.65s;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+
+    transition:
+        opacity 0.65s ease,
+        visibility 0s linear 0s;
+}
+
+
+/* ============================= */
+/* HOME */
+/* ============================= */
+
+#home {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(115, 18, 30, 0.16),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0, 0, 0, 0.45),
+            transparent 70%
+        );
+}
+
+
+.home-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+
+/* small text above ASPIRAL */
+
+.eyebrow {
+    margin-bottom: 8px;
+
+    color: #8c8c8c;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+}
+
+
+/* main ASPIRAL title */
+
+h1 {
+    font-family: "Mirra", serif;
+    
+    font-size: clamp(60px, 8vw, 110px);
+
+    font-weight: 400;
+
+    letter-spacing: 12px;
+
+    line-height: 1;
+
+    background: linear-gradient(
+        120deg,
+        #666666 0%,
+        #d0d0d0 25%,
+        #ffffff 42%,
+        #8a8a8a 60%,
+        #eeeeee 78%,
+        #666666 100%
+    );
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+    margin-left: 12px;
+}
+
+
+/* owners */
+
+.owners {
+    margin-top: 20px;
+
+    color: #888888;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+}
+
+.owners span {
+    color: #d5d5d5;
+}
+
+
+/* ============================= */
+/* TELEGRAM BUTTON */
+/* ============================= */
+
+.telegram-button {
+    margin-top: 28px;
+    padding: 11px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.06);
+    color: #dcdcdc;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 3px;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.telegram-button:hover {
+    background: rgba(115, 18, 30, 0.18);
+    border-color: rgba(150, 40, 50, 0.6);
+    color: #ffffff;
+}
+
+
+/* ============================= */
+/* INTERACTIVE PHOTO */
+/* ============================= */
+
+.interactive-card {
+
+    position: relative;
+
+    width: min(760px, 90vw);
+
+    aspect-ratio: 16 / 9;
+
+    margin-top: 42px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background: #0c0c0c;
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.55);
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.4s ease;
+}
+
+.interactive-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+
+    transform: translateY(-3px);
+}
+
+
+/* ============================= */
+/* CARD SIDES */
+/* ============================= */
+
+.card-side {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+.card-side.active-side {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ============================= */
+/* PHOTO PLACEHOLDER */
+/* ============================= */
+
+.photo-side {
+    background: #101010;
+}
+
+
+/*
+    Сюда позже поставим реальную фотографию.
+*/
+
+.photo-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(80, 10, 18, 0.22)
+        ),
+
+        #101010;
+}
+
+.photo-placeholder span {
+
+    color: #666666;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+}
+
+
+/* text over photo */
+
+.card-hint {
+
+    position: absolute;
+
+    bottom: 22px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    white-space: nowrap;
+}
+
+
+/* ============================= */
+/* TEXT SIDE */
+/* ============================= */
+
+.text-side {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+    overflow: hidden;
+
+    background: #080808;
+
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.7);
+}
+
+.text-side::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("images/tekstfon.jpg");
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.22;
+}
+
+.text-side::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(115, 18, 30, 0.18),
+            transparent 65%
+        ),
+        rgba(0, 0, 0, 0.55);
+}
+
+.welcome-text {
+    position: relative;
+    z-index: 2;
+}
+
+
+.welcome-text {
+    max-width: 620px;
+
+    text-align: center;
+}
+
+
+/* small ASPIRAL text */
+
+.small-title {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #8d8d8d;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+}
+
+
+/* welcome title */
+
+.welcome-text h3 {
+
+    margin-bottom: 22px;
+
+    font-size: clamp(28px, 4vw, 46px);
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    font-family: "Minion Pro", serif;
+}
+
+
+/* paragraph */
+
+.welcome-text p {
+
+    max-width: 560px;
+
+    margin: 0 auto;
+
+    color: #a9a9a9;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* click again */
+
+.click-again {
+
+    display: block;
+
+    margin-top: 30px;
+
+    color: #777777;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+
+/* ============================= */
+/* OTHER PAGES */
+/* ============================= */
+
+#rules,
+#chats,
+#games,
+#contact {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(115, 18, 30, 0.08),
+            transparent 50%
+        ),
+        #070707;
+}
+
+
+.page-content {
+
+    width: min(900px, 90vw);
+
+    text-align: center;
+}
+
+
+.section-label {
+
+    margin-bottom: 12px;
+
+    color: #777777;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+}
+
+
+.page-content h2 {
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    font-weight: 400;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 30px;
+}
+
+
+.page-content p {
+
+    color: #999999;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 25px;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .logo {
+        font-size: 19px;
+        letter-spacing: 4px;
+    }
+
+    .interactive-card {
+        width: 92vw;
+    }
+
+    .text-side {
+        padding: 35px;
+    }
+
+    .welcome-text p {
+        font-size: 14px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .owners {
+        font-size: 12px;
+    }
+
+    .interactive-card {
+        margin-top: 30px;
+    }
+
+}/* =========================
+   DROPDOWN NAVIGATION
+   ========================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > .nav-main {
+    display: block;
+}
+
+
+/* Dropdown */
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+
+    min-width: 180px;
+
+    padding: 14px 0;
+
+    background: rgba(8, 8, 8, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0.35s ease;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+/* Open on hover */
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+
+    pointer-events: auto;
+}
+
+
+/* Dropdown links */
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 9px 22px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 0.18em;
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+
+.dropdown-menu a:hover {
+    color: #ffffff;
+
+    padding-left: 28px;
+}
+
+
+/* Small red line */
+
+.dropdown-menu a::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 0;
+    height: 1px;
+
+    margin-right: 0;
+
+    background: #8b1e2d;
+
+    vertical-align: middle;
+
+    transition:
+        width 0.25s ease,
+        margin-right 0.25s ease;
+}
+
+
+.dropdown-menu a:hover::before {
+    width: 14px;
+    margin-right: 8px;
+}
+
+/* =========================
+   INTERACTIVE CARD TOGGLE
+   ========================= */
+
+.interactive-card .text-side {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+.interactive-card.show-text .photo-side {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.interactive-card.show-text .text-side {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}/* =========================
+   CARD — SAME AREA
+   ========================= */
+
+.interactive-card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Both sides occupy exactly the same space */
+
+.interactive-card .card-side {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+}
+
+
+/* Photo */
+
+.interactive-card .photo-side {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Text */
+
+.interactive-card .text-side {
+    opacity: 0;
+    visibility: hidden;
+
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+
+/* When clicked */
+
+.interactive-card.show-text .photo-side {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.interactive-card.show-text .text-side {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Text itself */
+
+.welcome-text {
+    width: min(650px, 90%);
+    max-height: 100%;
+    overflow-y: auto;
+
+    text-align: center;
+}
+
+
+/* Hide scrollbar */
+
+.welcome-text::-webkit-scrollbar {
+    width: 0;
+}.welcome-text {
+    width: 80%;
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}.logo,
+nav a,
+.telegram-button,
+.eyebrow,
+.section-label,
+.small-title,
+.card-hint,
+.click-again {
+    font-family: "Minion Pro", serif;
+}.page-content h2 {
+    font-family: "Mirra", serif;
+}.card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}/* FIX CARD */
+
+.interactive-card .photo-side {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.interactive-card .text-side {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.interactive-card.show-text .photo-side {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.interactive-card.show-text .text-side {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}/* =========================
+   PATENT
+   ========================= */
+
+ 
+
+.patent-page {
+    position: absolute;
+    overflow: hidden;
+
+    background-image: url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Main layout */
+
+.patent-content {
+    position: relative;
+
+    width: min(1250px, 92vw);
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+.patent-text {
+    position: relative;
+    z-index: 3;
+
+    width: 48%;
+
+    padding-left: 4%;
+    padding-top: 30px;
+
+    text-align: left;
+}
+
+
+.patent-label {
+    margin-bottom: 10px;
+
+    color: #858585;
+
+    font-family: "Minion Pro", serif;
+    font-size: 12px;
+    letter-spacing: 6px;
+}
+
+
+.patent-text h2 {
+    margin: 0;
+
+    color: #eeeeee;
+
+    font-family: "Mirra", serif;
+    font-size: clamp(55px, 7vw, 100px);
+    font-weight: 400;
+
+    letter-spacing: 9px;
+    line-height: 0.95;
+}
+
+
+.patent-line {
+    width: 85px;
+    height: 1px;
+
+    margin-top: 28px;
+    margin-bottom: 30px;
+
+    background: rgba(143, 29, 40, 0.85);
+}
+
+
+/* Main description */
+
+.patent-description {
+    width: min(560px, 100%);
+    color: #b5b5b5;
+    font-family: "Minion Pro", serif;
+    font-size: 21px;
+    line-height: 1.75;
+}
+
+
+/* Names */
+
+.patent-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    margin-top: 32px;
+
+    color: #eeeeee;
+    font-family: "Minion Pro", serif;
+    font-size: 17px;
+    letter-spacing: 4px;
+}
+
+
+.patent-names span {
+    position: relative;
+}
+
+
+.patent-names span:not(:last-child)::after {
+    content: "·";
+
+    position: absolute;
+
+    right: -16px;
+
+    color: #72202a;
+}
+
+
+/* Warning */
+
+.patent-warning {
+    width: min(550px, 100%);
+
+    margin-top: 38px;
+
+    color: #8d8d8d;
+
+    font-family: "Minion Pro", serif;
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* Date */
+
+.patent-date {
+    margin-top: 40px;
+
+    color: #858585;
+    font-family: "Minion Pro", serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+}
+
+
+/* =========================
+   JUNGKOOK
+   ========================= */
+
+.patent-figure {
+    position: absolute;
+
+    top: 0;
+    right: -3%;
+
+    width: 57%;
+    height: 100%;
+
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+
+.patent-figure::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        #070707 0%,
+        rgba(7, 7, 7, 0.85) 18%,
+        rgba(7, 7, 7, 0.25) 55%,
+        transparent 100%
+    );
+
+    z-index: 2;
+}
+
+
+.patent-figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        0deg,
+        #070707 0%,
+        transparent 25%,
+        transparent 75%,
+        rgba(7, 7, 7, 0.35) 100%
+    );
+
+    z-index: 2;
+}
+
+
+.patent-figure img {
+    position: relative;
+
+    height: 94%;
+    width: auto;
+
+    max-width: none;
+
+    object-fit: contain;
+
+    filter:
+        grayscale(100%)
+        contrast(1.05)
+        brightness(0.82);
+
+    opacity: 0.92;
+
+    z-index: 1;
+
+    user-select: none;
+}
+
+
+/* =========================
+   PATENT RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .patent-content {
+        width: 94vw;
+    }
+
+    .patent-text {
+        width: 58%;
+        padding-left: 2%;
+    }
+
+    .patent-figure {
+        width: 60%;
+        right: -15%;
+    }
+
+    .patent-description {
+        font-size: 15px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .patent-content {
+        align-items: flex-start;
+        padding-top: 110px;
+    }
+
+    .patent-text {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .patent-description,
+    .patent-warning {
+        max-width: 90%;
+    }
+
+    .patent-figure {
+        width: 75%;
+        height: 75%;
+
+        right: -20%;
+        top: 25%;
+    }
+
+    .patent-text h2 {
+        font-size: 58px;
+    }
+
+}/* =========================
+   PATENT — FINAL COMPOSITION
+   ========================= */
+
+.patent-page {
+    padding: 0;
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            #050505 30%,
+            rgba(5, 5, 5, 0.92) 42%,
+            rgba(5, 5, 5, 0.45) 60%,
+            rgba(5, 5, 5, 0.05) 78%,
+            transparent 100%
+        ),
+        url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg")
+        center / cover no-repeat;
+}
+
+
+/* весь экран */
+.patent-content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+/* текстовая зона */
+.patent-text {
+    width: 48%;
+    padding-left: 8vw;
+    padding-top: 20px;
+    z-index: 5;
+}
+
+
+/* Чонгук */
+.patent-figure {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    width: 55%;
+    height: 100%;
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+/* мягкое растворение слева */
+.patent-figure::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        #050505 0%,
+        rgba(5, 5, 5, 0.9) 15%,
+        rgba(5, 5, 5, 0.35) 42%,
+        transparent 70%
+    );
+
+    z-index: 2;
+}
+
+
+/* затемнение сверху и снизу */
+.patent-figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        0deg,
+        #050505 0%,
+        transparent 20%,
+        transparent 82%,
+        rgba(5, 5, 5, 0.45) 100%
+    );
+
+    z-index: 2;
+}
+
+
+/* сам Чонгук */
+.patent-figure img {
+    height: 96%;
+    width: auto;
+
+    filter:
+        grayscale(100%)
+        contrast(1.08)
+        brightness(0.82);
+
+    opacity: 0.96;
+
+    position: relative;
+    z-index: 1;
+}/* =========================
+   PATENT — CLEAN VERSION
+   ========================= */
+
+.patent-page {
+    padding: 0;
+    background: #050505;
+}
+
+
+/* вся сцена */
+.patent-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+
+/* =========================
+   ФОН СПРАВА
+   ========================= */
+
+.patent-content::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 65%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            rgba(5, 5, 5, 0.9) 12%,
+            rgba(5, 5, 5, 0.35) 35%,
+            rgba(5, 5, 5, 0) 60%
+        ),
+        url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg")
+        center / cover no-repeat;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   ТЕКСТ
+   ========================= */
+
+.patent-text {
+    position: absolute;
+
+    left: 8vw;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42%;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   ЧОНГУК
+   ========================= */
+
+.patent-figure {
+    position: absolute;
+
+    top: 0;
+    right: 7%;
+
+    width: 52%;
+    height: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    z-index: 3;
+}
+
+
+/* отключаем старые градиенты */
+.patent-figure::before,
+.patent-figure::after {
+    display: none;
+}
+
+
+/* изображение */
+.patent-figure img {
+    height: 94%;
+    width: auto;
+
+    filter:
+        grayscale(100%)
+        contrast(1.05)
+        brightness(0.85);
+
+    opacity: 0.95;
+
+    object-fit: contain;
+}
+/* =========================================
+   ASPIRAL — RULES
+   ========================================= */
+
+#rules.rules-page {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 125px 6vw 80px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+   background:
+    linear-gradient(
+        rgba(5, 5, 5, 0.72),
+        rgba(5, 5, 5, 0.90)
+    ),
+    radial-gradient(
+        ellipse at 80% 8%,
+        rgba(105, 20, 32, 0.16),
+        transparent 42%
+    ),
+    url("images/photo_5339171865861235378_x.jpg") center / cover fixed no-repeat;
+
+    scrollbar-width: thin;
+    scrollbar-color: #57232a #090909;
+}
+
+#rules .rules-container {
+    width: min(1100px, 100%);
+    flex: 0 0 auto;
+    margin: 0 auto;
+    padding-bottom: 35px;
+}
+
+/* INTRO */
+
+#rules .rules-header {
+    position: relative;
+    padding: 30px 0 65px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#rules .rules-eyebrow {
+    margin-bottom: 18px;
+    color: #9a3944;
+    font-family: "Minion Pro", serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+#rules .rules-header h2 {
+    margin: 0 0 25px;
+    color: #e8e8e8;
+    font-family: "Mirra", serif;
+    font-size: clamp(64px, 10vw, 120px);
+    font-weight: 400;
+    letter-spacing: 10px;
+    line-height: 1;
+}
+
+#rules .rules-intro {
+    max-width: 650px;
+    color: #b5b5b5;
+    font-family: "Minion Pro", serif;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* SECTION HEADINGS */
+
+#rules .rules-section {
+    margin-top: 75px;
+}
+
+#rules .rules-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#rules .rules-section-number {
+    color: rgba(180, 180, 180, 0.25);
+    font-family: "Mirra", serif;
+    font-size: 48px;
+    line-height: 1;
+}
+
+#rules .rules-section-heading h3 {
+    margin: 0;
+    color: #dedede;
+    font-family: "Minion Pro", serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+/* INDIVIDUAL RULES */
+
+#rules .rule-item {
+    display: grid;
+    grid-template-columns: 85px minmax(0, 1fr);
+    gap: 15px;
+    padding: 32px 0 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+#rules .rule-number {
+    padding-top: 2px;
+    color: rgba(173, 54, 67, 0.75);
+    font-family: "Mirra", serif;
+    font-size: 35px;
+    line-height: 1.1;
+}
+
+#rules .rule-content {
+    min-width: 0;
+}
+
+#rules .rule-content > p {
+    margin: 0;
+    color: #c7c7c7;
+    font-family: "Minion Pro", serif;
+    font-size: 19px;
+    line-height: 1.85;
+}
+
+#rules .rule-penalties {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    padding-left: 17px;
+    border-left: 2px solid #702630;
+}
+
+#rules .rule-penalties p {
+    margin: 0;
+    color: #a7a7a7;
+    font-family: "Minion Pro", serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ACTIVITY */
+
+#rules .activity-content {
+    padding: 15px 0 0;
+}
+
+#rules .activity-content h4 {
+    margin: 0 0 25px;
+    color: #cfcfcf;
+    font-family: "Minion Pro", serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+#rules .activity-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+#rules .activity-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 25px 28px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.045),
+        rgba(255, 255, 255, 0.012)
+    );
+    border-left: 2px solid #702630;
+}
+
+#rules .activity-value {
+    color: #e2e2e2;
+    font-family: "Mirra", serif;
+    font-size: 53px;
+    line-height: 1;
+}
+
+#rules .activity-label {
+    color: #999999;
+    font-family: "Minion Pro", serif;
+    font-size: 16px;
+}
+
+#rules .activity-content > p,
+#rules .activity-penalties p {
+    color: #bdbdbd;
+    font-family: "Minion Pro", serif;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+#rules .activity-penalties {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 25px 0;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+#rules .activity-content blockquote {
+    margin: 20px 0;
+    padding: 16px 22px;
+    color: #b5b5b5;
+    font-family: "Minion Pro", serif;
+    font-size: 17px;
+    line-height: 1.8;
+    border-left: 2px solid #702630;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+#rules .activity-content .activity-schedule {
+    margin-top: 30px;
+    padding: 22px 0;
+    color: #e1e1e1;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* REST */
+
+#rules .rest-content {
+    padding-top: 5px;
+}
+
+#rules .rest-content ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: rest-counter;
+}
+
+#rules .rest-content li {
+    position: relative;
+    counter-increment: rest-counter;
+    padding: 24px 0 24px 65px;
+    color: #bdbdbd;
+    font-family: "Minion Pro", serif;
+    font-size: 19px;
+    line-height: 1.8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+#rules .rest-content li::before {
+    content: counter(rest-counter, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 26px;
+    color: #a34a55;
+    font-family: "Mirra", serif;
+    font-size: 24px;
+}
+
+/* FINAL NOTICE */
+
+#rules .rules-final-notice {
+    margin-top: 85px;
+    padding: 30px 0 20px;
+    border-top: 1px solid rgba(143, 29, 40, 0.65);
+}
+
+#rules .rules-final-notice > p:last-child {
+    max-width: 900px;
+    color: #999999;
+    font-family: "Minion Pro", serif;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    #rules.rules-page {
+        padding: 105px 22px 55px;
+    }
+
+    #rules .rules-header {
+        padding: 20px 0 42px;
+    }
+
+    #rules .rules-header h2 {
+        font-size: clamp(52px, 14vw, 85px);
+        letter-spacing: 5px;
+    }
+
+    #rules .rules-intro {
+        font-size: 17px;
+    }
+
+    #rules .rules-section {
+        margin-top: 50px;
+    }
+
+    #rules .rules-section-heading {
+        gap: 16px;
+    }
+
+    #rules .rules-section-number {
+        font-size: 38px;
+    }
+
+    #rules .rules-section-heading h3 {
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    #rules .rule-item {
+        grid-template-columns: 43px minmax(0, 1fr);
+        gap: 8px;
+        padding: 25px 0;
+    }
+
+    #rules .rule-number {
+        font-size: 25px;
+    }
+
+    #rules .rule-content > p {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    #rules .rule-penalties p {
+        font-size: 15px;
+    }
+
+    #rules .activity-stats {
+        gap: 10px;
+    }
+
+    #rules .activity-stat {
+        padding: 20px 15px;
+    }
+
+    #rules .activity-value {
+        font-size: 42px;
+    }
+
+    #rules .activity-label {
+        font-size: 14px;
+    }
+
+    #rules .activity-content > p,
+    #rules .activity-penalties p {
+        font-size: 16px;
+    }
+
+    #rules .rest-content li {
+        padding-left: 45px;
+        font-size: 17px;
+    }
+
+    #rules .rules-final-notice {
+        margin-top: 55px;
+    }
+
+    #rules .rules-final-notice > p:last-child {
+        font-size: 16px;
+    }
+}
+/* RULES — LARGER SECTION HEADINGS */
+
+#rules .rules-section-heading {
+    gap: 28px;
+    margin-bottom: 28px;
+    padding-bottom: 25px;
+}
+
+#rules .rules-section-number {
+    font-size: 58px;
+    color: rgba(190, 190, 190, 0.38);
+}
+
+#rules .rules-section-heading h3 {
+    font-size: 27px;
+    letter-spacing: 7px;
+    color: #f0f0f0;
+}
+
+/* ACTIVITY — ЧИСТКА */
+
+#rules .activity-content h4 {
+    font-size: 23px;
+    letter-spacing: 6px;
+    color: #e5e5e5;
+    margin-bottom: 30px;
+}
+
+/* REST — NUMBERING */
+
+#rules .rest-content li::before {
+    font-size: 28px;
+    color: #b75b66;
+}
+
+/* FINAL NOTICE */
+
+#rules .rules-final-notice .rules-eyebrow {
+    font-size: 15px;
+    letter-spacing: 6px;
+    color: #b75b66;
+    margin-bottom: 22px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    #rules .rules-section-heading {
+        gap: 17px;
+    }
+
+    #rules .rules-section-number {
+        font-size: 43px;
+    }
+
+    #rules .rules-section-heading h3 {
+        font-size: 21px;
+        letter-spacing: 4px;
+    }
+
+    #rules .activity-content h4 {
+        font-size: 20px;
+        letter-spacing: 4px;
+    }
+}
+/* =========================================
+   ASPIRAL — MOBILE VERSION
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* =========================
+       GENERAL
+       ========================= */
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        background-position: center center;
+    }
+
+    .page {
+        width: 100%;
+        height: 100dvh;
+        min-height: 100dvh;
+        padding: 105px 20px 35px;
+    }
+
+
+    /* =========================
+       MOBILE NAVIGATION
+       ========================= */
+
+    .navbar {
+        height: 82px;
+        padding: 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        flex-shrink: 0;
+        font-size: 17px;
+        letter-spacing: 4px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        max-width: calc(100% - 105px);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        flex-shrink: 0;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    /* Dropdowns remain compact on phone */
+    .dropdown-menu {
+        min-width: 150px;
+        padding: 10px 0;
+    }
+
+    .dropdown-menu a {
+        padding: 9px 18px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+    }
+
+
+    /* =========================
+       HOME
+       ========================= */
+
+    #home {
+        padding: 95px 16px 25px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .home-content {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .eyebrow {
+        margin-bottom: 7px;
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
+
+    h1 {
+        font-size: clamp(52px, 17vw, 82px);
+        letter-spacing: 6px;
+        margin-left: 6px;
+    }
+
+    .owners {
+        margin-top: 14px;
+        font-size: 11px;
+        letter-spacing: 1.2px;
+    }
+
+    .telegram-button {
+        margin-top: 20px;
+        padding: 10px 18px;
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       HOME INTERACTIVE CARD
+       ========================= */
+
+    .interactive-card {
+        width: 100%;
+        max-width: 520px;
+        margin-top: 28px;
+        aspect-ratio: 16 / 10;
+    }
+
+    .card-hint {
+        bottom: 14px;
+        font-size: 8px;
+        letter-spacing: 2.5px;
+    }
+
+    .text-side {
+        padding: 25px 20px;
+    }
+
+    .welcome-text {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .small-title {
+        margin-bottom: 10px;
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .welcome-text h3 {
+        margin-bottom: 12px;
+        font-size: clamp(22px, 7vw, 32px);
+        letter-spacing: 1px;
+    }
+
+    .welcome-text p {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .click-again {
+        margin-top: 16px;
+        font-size: 7px;
+        letter-spacing: 2.5px;
+    }
+
+
+    /* =========================
+       BASIC OTHER PAGES
+       ========================= */
+
+    .page-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-label {
+        margin-bottom: 8px;
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .page-content h2 {
+        font-size: clamp(40px, 14vw, 65px);
+        letter-spacing: 5px;
+        margin-bottom: 20px;
+    }
+
+    .page-content p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+
+    /* =========================
+       PATENT
+       ========================= */
+
+    .patent-page {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .patent-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .patent-content::before {
+        width: 100%;
+        height: 100%;
+        background:
+            linear-gradient(
+                90deg,
+                #050505 0%,
+                rgba(5,5,5,.94) 25%,
+                rgba(5,5,5,.58) 55%,
+                rgba(5,5,5,.18) 100%
+            ),
+            url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg")
+            center / cover no-repeat;
+    }
+
+    .patent-text {
+        left: 0;
+        top: 46%;
+        width: 100%;
+        padding: 0 25px;
+        transform: translateY(-50%);
+    }
+
+    .patent-label {
+        margin-bottom: 8px;
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
+
+    .patent-text h2 {
+        font-size: clamp(48px, 16vw, 70px);
+        letter-spacing: 5px;
+    }
+
+    .patent-line {
+        width: 55px;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+
+    .patent-description {
+        width: 82%;
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .patent-names {
+        gap: 8px 18px;
+        margin-top: 20px;
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .patent-warning {
+        width: 80%;
+        margin-top: 22px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .patent-date {
+        margin-top: 22px;
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .patent-figure {
+        top: 27%;
+        right: -17%;
+        width: 72%;
+        height: 73%;
+    }
+
+    .patent-figure img {
+        height: 100%;
+        opacity: .58;
+        filter:
+            grayscale(100%)
+            contrast(1.05)
+            brightness(.72);
+    }
+
+
+    /* =========================
+       RULES
+       ========================= */
+
+    #rules.rules-page {
+        padding: 100px 18px 45px;
+    }
+
+    #rules .rules-container {
+        width: 100%;
+    }
+
+    #rules .rules-header {
+        padding: 18px 0 35px;
+    }
+
+    #rules .rules-header h2 {
+        font-size: clamp(48px, 15vw, 75px);
+        letter-spacing: 4px;
+    }
+
+    #rules .rules-intro {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    #rules .rules-section {
+        margin-top: 45px;
+    }
+
+    #rules .rules-section-heading {
+        gap: 13px;
+        margin-bottom: 20px;
+        padding-bottom: 18px;
+    }
+
+    #rules .rules-section-number {
+        flex-shrink: 0;
+        font-size: 38px;
+    }
+
+    #rules .rules-section-heading h3 {
+        font-size: 17px;
+        letter-spacing: 3px;
+        line-height: 1.3;
+    }
+
+    #rules .rule-item {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 8px;
+        padding: 22px 0;
+    }
+
+    #rules .rule-number {
+        font-size: 22px;
+    }
+
+    #rules .rule-content > p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    #rules .rule-penalties {
+        margin-top: 15px;
+        padding-left: 12px;
+    }
+
+    #rules .rule-penalties p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    #rules .activity-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    #rules .activity-stat {
+        padding: 17px 13px;
+    }
+
+    #rules .activity-value {
+        font-size: 34px;
+    }
+
+    #rules .activity-label {
+        font-size: 12px;
+    }
+
+    #rules .activity-content > p,
+    #rules .activity-penalties p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    #rules .activity-content h4 {
+        font-size: 17px;
+        letter-spacing: 3px;
+    }
+
+    #rules .rest-content li {
+        padding: 20px 0 20px 40px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    #rules .rest-content li::before {
+        top: 21px;
+        font-size: 23px;
+    }
+
+    #rules .rules-final-notice {
+        margin-top: 50px;
+    }
+
+    #rules .rules-final-notice > p:last-child {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .navbar {
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 15px;
+        letter-spacing: 3px;
+    }
+
+    nav {
+        gap: 10px;
+        max-width: calc(100% - 85px);
+    }
+
+    nav a {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    #home {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .owners {
+        font-size: 10px;
+    }
+
+    .interactive-card {
+        aspect-ratio: 16 / 11;
+    }
+
+    .patent-text {
+        padding: 0 20px;
+    }
+
+    .patent-description {
+        font-size: 13px;
+    }
+
+    .patent-warning {
+        font-size: 11px;
+    }
+}
+/* =========================================
+ASPIRAL — MOBILE FINAL
+========================================= */
+
+@media (max-width: 600px) {
+
+```
+/* =========================
+   GENERAL
+   ========================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-position: center center;
+}
+
+.page {
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 105px 18px 35px;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.navbar {
+    height: 78px;
+    padding: 0 16px;
+    gap: 16px;
+}
+
+.logo {
+    flex-shrink: 0;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+nav {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 17px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none;
+    white-space: nowrap;
+    padding-right: 5px;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+nav a {
+    flex-shrink: 0;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+
+/* =========================
+   MOBILE DROPDOWNS
+   ========================= */
+
+.nav-dropdown {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.dropdown-menu {
+    position: fixed;
+    top: 68px;
+    left: auto;
+    right: 15px;
+
+    min-width: 175px;
+    padding: 12px 0;
+
+    transform: translateY(-8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.nav-dropdown.mobile-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 11px 20px;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+.dropdown-menu a:hover {
+    padding-left: 20px;
+}
+
+.dropdown-menu a::before {
+    display: none;
+}
+
+
+/* =========================
+   HOME
+   ========================= */
+
+#home {
+    padding: 94px 15px 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.home-content {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.eyebrow {
+    margin-bottom: 7px;
+    font-size: 9px;
+    letter-spacing: 3.5px;
+}
+
+h1 {
+    font-size: clamp(50px, 17vw, 80px);
+    letter-spacing: 6px;
+    margin-left: 5px;
+}
+
+.owners {
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.telegram-button {
+    margin-top: 19px;
+    padding: 10px 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   INTERACTIVE CARD
+   ========================= */
+
+.interactive-card {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 10;
+    margin-top: 30px;
+}
+
+.text-side {
+    padding: 25px 28px;
+}
+
+.welcome-text {
+    width: 100%;
+    max-width: 100%;
+}
+
+.small-title {
+    margin-bottom: 12px;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.welcome-text h3 {
+    margin-bottom: 14px;
+    font-size: clamp(27px, 8vw, 38px);
+    letter-spacing: 1px;
+}
+
+.welcome-text p {
+    width: 100%;
+    max-width: 520px;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.click-again {
+    margin-top: 20px;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.card-hint {
+    bottom: 13px;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+}
+
+
+/* =========================
+   PATENT
+   ========================= */
+
+.patent-page {
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
+}
+
+.patent-content {
+    width: 100%;
+    min-height: 100dvh;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.patent-content::before {
+    width: 100%;
+    height: 100%;
+    min-height: 100dvh;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            rgba(5,5,5,.95) 28%,
+            rgba(5,5,5,.72) 56%,
+            rgba(5,5,5,.25) 100%
+        ),
+        url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg")
+        center / cover no-repeat;
+}
+
+.patent-text {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    padding:
+        125px
+        25px
+        90px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    z-index: 5;
+}
+
+.patent-label {
+    margin-bottom: 9px;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.patent-text h2 {
+    font-size: clamp(48px, 16vw, 70px);
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 6;
+}
+
+.patent-line {
+    width: 55px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.patent-description {
+    position: relative;
+    z-index: 6;
+
+    width: min(78%, 500px);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.patent-names {
+    position: relative;
+    z-index: 6;
+
+    gap: 8px 18px;
+    margin-top: 20px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.patent-warning {
+    position: relative;
+    z-index: 6;
+
+    width: min(72%, 480px);
+    margin-top: 22px;
+
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.patent-date {
+    position: relative;
+    z-index: 6;
+
+    margin-top: 22px;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.patent-figure {
+    top: 18%;
+    right: -35%;
+    width: 82%;
+    height: 82%;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+.patent-figure img {
+    height: 100%;
+    opacity: .34;
+
+    filter:
+        grayscale(100%)
+        contrast(1.05)
+        brightness(.65);
+}
+
+
+/* =========================
+   RULES
+   ========================= */
+
+#rules.rules-page {
+    padding: 100px 18px 45px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#rules .rules-container {
+    width: 100%;
+}
+
+#rules .rules-header {
+    padding: 18px 0 35px;
+}
+
+#rules .rules-header h2 {
+    font-size: clamp(48px, 15vw, 75px);
+    letter-spacing: 4px;
+}
+
+#rules .rules-intro {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+#rules .rules-section {
+    margin-top: 45px;
+}
+
+#rules .rules-section-heading {
+    gap: 13px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+}
+
+#rules .rules-section-number {
+    flex-shrink: 0;
+    font-size: 38px;
+}
+
+#rules .rules-section-heading h3 {
+    font-size: 17px;
+    letter-spacing: 3px;
+    line-height: 1.3;
+}
+
+#rules .rule-item {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 8px;
+    padding: 22px 0;
+}
+
+#rules .rule-number {
+    font-size: 22px;
+}
+
+#rules .rule-content > p {
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+#rules .rule-penalties {
+    margin-top: 15px;
+    padding-left: 12px;
+}
+
+#rules .rule-penalties p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#rules .activity-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+#rules .activity-stat {
+    padding: 17px 13px;
+}
+
+#rules .activity-value {
+    font-size: 34px;
+}
+
+#rules .activity-label {
+    font-size: 12px;
+}
+
+#rules .activity-content > p,
+#rules .activity-penalties p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+#rules .activity-content h4 {
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+#rules .rest-content li {
+    padding: 20px 0 20px 40px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+#rules .rest-content li::before {
+    top: 21px;
+    font-size: 23px;
+}
+
+#rules .rules-final-notice {
+    margin-top: 50px;
+}
+
+#rules .rules-final-notice > p:last-child {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   SMALL OTHER PAGES
+   ========================= */
+
+#chats,
+#games,
+#contact {
+    padding: 105px 20px 40px;
+    overflow-y: auto;
+}
+```
+
+}
+
+/* =========================================
+VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+```
+.navbar {
+    padding: 0 12px;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 14px;
+    letter-spacing: 2.5px;
+}
+
+nav {
+    gap: 13px;
+}
+
+nav a {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+#home {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+.interactive-card {
+    aspect-ratio: 16 / 11;
+}
+
+.welcome-text p {
+    font-size: 14px;
+}
+
+.patent-text {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.patent-description {
+    width: 82%;
+    font-size: 13px;
+}
+
+.patent-warning {
+    width: 78%;
+    font-size: 11px;
+}
+```
+
+}
