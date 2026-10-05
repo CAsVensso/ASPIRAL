@@ -2356,7 +2356,7 @@ ASPIRAL — MOBILE FINAL
 
 @media (max-width: 600px) {
 
-```
+
 /* =========================
    GENERAL
    ========================= */
@@ -2593,12 +2593,12 @@ h1 {
     min-height: 100dvh;
 
     background:
-        linear-gradient(
+          linear-gradient(
             90deg,
             #050505 0%,
-            rgba(5,5,5,.95) 28%,
-            rgba(5,5,5,.72) 56%,
-            rgba(5,5,5,.25) 100%
+            rgba(5,5,5,.72) 28%,
+            rgba(5,5,5,.22) 56%,
+            rgba(5,5,5,0) 100%
         ),
         url("images/Airbrush-IMAGE-ENHANCER-1789246866179-1789246866179.jpg")
         center / cover no-repeat;
@@ -2838,7 +2838,7 @@ h1 {
     padding: 105px 20px 40px;
     overflow-y: auto;
 }
-```
+
 
 }
 
@@ -2848,7 +2848,7 @@ VERY SMALL PHONES
 
 @media (max-width: 380px) {
 
-```
+
 .navbar {
     padding: 0 12px;
     gap: 12px;
