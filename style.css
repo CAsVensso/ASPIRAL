@@ -1463,7 +1463,7 @@ nav a,
         rgba(105, 20, 32, 0.16),
         transparent 42%
     ),
-    url("images/-2147483648_-221605.jpg") center / cover fixed no-repeat;
+    url("image/-2147483648_-221605") center / cover fixed no-repeat;
 
     scrollbar-width: thin;
     scrollbar-color: #57232a #090909;
