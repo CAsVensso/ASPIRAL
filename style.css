@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 /* ============================= */
 /* BASIC */
 /* ============================= */
@@ -2899,6 +2900,35 @@ h1 {
     width: 78%;
     font-size: 11px;
 }
-```
 
+/* ASPIRAL — верхняя панель */
+
+.navbar nav a {
+    font-family: "Manrope", Arial, sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.7px !important;
+    text-transform: uppercase;
 }
+
+/* Линия под логотипом ASPIRAL */
+
+.navbar .logo {
+    position: relative;
+    padding-bottom: 9px;
+}
+
+.navbar .logo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        #d5dce4 0%,
+        #2878B8 65%,
+        transparent 100%
+    );
+}
+
