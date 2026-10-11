@@ -1,0 +1,295 @@
+/* ASPIRAL / PATENT — graphite + night city */
+/* Load after style.css and mobile.css. Page transition rules untouched. */
+#patent.patent-page {
+  height: 100vh;
+  height: 100dvh;
+  padding: 80px 0 0;
+  overflow: hidden !important;
+  background: #030406 !important;
+}
+#patent .patent-content {
+  position: relative;
+  width: 100%; height: 100%; margin: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+/* Restore the black-to-image dissolve, but use fon.png instead of the castle. */
+#patent .patent-content::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  background:
+    linear-gradient(90deg, #030406 0%, rgba(3,4,6,.98) 19%, rgba(3,4,6,.88) 40%, rgba(3,4,6,.53) 72%, rgba(3,4,6,.24) 100%),
+    linear-gradient(0deg, rgba(3,4,6,.48), transparent 35%, rgba(3,4,6,.32)),
+    url('images/fon.png') center / cover no-repeat !important;
+  pointer-events: none;
+  z-index: 0;
+}
+#patent .patent-figure { display: none !important; }
+#patent .patent-text {
+  position: relative !important;
+  top: auto !important; left: auto !important; right: auto !important;
+  transform: none !important;
+  z-index: 1;
+  width: min(640px, 100%) !important;
+  max-width: 100%; padding: 0 !important; margin: 0 auto;
+  text-align: left;
+}
+#patent .patent-document {
+  width: 100% !important;
+  padding: 20px 0 !important;
+  border: 0 !important;
+  background: none !important;
+}
+#patent .patent-topline { display: none !important; }
+#patent .patent-heading { margin-bottom: 20px; }
+#patent .patent-label {
+  margin-bottom: 10px; color: #9c9c9c;
+  font-size: 11px; letter-spacing: 4px;
+}
+#patent .patent-text h2 {
+  margin: 0; font-size: clamp(52px, 7vw, 86px);
+  line-height: 1; letter-spacing: 7px;
+}
+#patent .patent-line {
+  width: 68px; height: 1px;
+  margin: 18px 0 0; background: #5b7894;
+}
+#patent .patent-description {
+  width: 100%; max-width: 100%;
+  font-size: clamp(16px, 1.6vw, 19px); line-height: 1.65;
+  color: #ddd;
+}
+#patent .patent-registry {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border: 1px solid rgba(195,200,210,.23);
+  background: rgba(5,7,10,.23);
+}
+#patent .patent-registry-label {
+  margin-bottom: 13px; color: #aaa;
+  font: 11px 'Minion Pro', serif; letter-spacing: 2.4px;
+}
+
+
+#patent .patent-warning {
+  width: 100%; max-width: 100%; margin-top: 23px;
+  color: #b0b0b0; font-size: 15px; line-height: 1.6;
+}
+#patent .patent-bottomline {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; margin-top: 22px; padding-top: 14px;
+  border-top: 1px solid rgba(200,200,200,.19);
+  color: #9b9b9b; font: 10px 'Minion Pro',serif; letter-spacing: 2px;
+}
+#patent .patent-date { margin: 0 !important; font-size: 10px; }
+@media (max-width: 600px) {
+  #patent.patent-page { padding-top: 70px !important; }
+  #patent .patent-content { padding: 10px 30px !important; }
+  #patent .patent-content::before {
+    background:
+      linear-gradient(90deg, rgba(3,4,6,.96) 0%, rgba(3,4,6,.88) 38%, rgba(3,4,6,.60) 100%),
+      linear-gradient(0deg, rgba(3,4,6,.45), transparent 38%, rgba(3,4,6,.25)),
+      url('images/fon.png') center / cover no-repeat !important;
+  }
+  #patent .patent-text { width: 100% !important; }
+  #patent .patent-document { padding: 12px 0 !important; }
+  #patent .patent-heading { margin-bottom: 18px; }
+  #patent .patent-label { margin-bottom: 8px; font-size: 10px; }
+  #patent .patent-text h2 { font-size: 52px; letter-spacing: 5px; }
+  #patent .patent-line { margin-top: 15px; }
+  #patent .patent-description { font-size: 14px; line-height: 1.55; }
+  #patent .patent-registry { margin-top: 19px; padding: 14px 13px; }
+  #patent .patent-registry-label { font-size: 10px; }
+  
+  #patent .patent-warning { margin-top: 19px; font-size: 12px; line-height: 1.55; }
+  #patent .patent-bottomline { margin-top: 18px; padding-top: 12px; font-size: 9px; }
+}
+@media (max-width: 600px) and (max-height: 700px) {
+  #patent .patent-heading { margin-bottom: 10px; }
+  #patent .patent-text h2 { font-size: 43px; }
+  #patent .patent-description { font-size: 12px; line-height: 1.4; }
+  #patent .patent-registry { margin-top: 12px; padding: 10px; }
+  #patent .patent-warning { margin-top: 12px; }
+  #patent .patent-bottomline { margin-top: 12px; }
+}
+
+/* FIX: castle was visible through the fading pages because it was on body. */
+body {
+  background-image: none !important;
+  background-color: #030406 !important;
+}
+
+/* PATENT: raise the document on mobile without changing page transitions. */
+@media (max-width: 600px) {
+  #patent .patent-content {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: 112px 30px 16px !important;
+  }
+  #patent .patent-document { padding: 0 !important; }
+}
+@media (max-width: 600px) and (max-height: 700px) {
+  #patent .patent-content { padding-top: 85px !important; }
+}
+
+/* ASPIRAL — RACING DOSSIER × BLACK EDITION */
+#patent .patent-document {
+  isolation: isolate;
+  position: relative !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#patent .patent-race-mark {
+  position: absolute;
+  z-index: -1;
+  top: -38px;
+  right: 0;
+  font-family: "Mirra", serif;
+  font-size: clamp(120px, 26vw, 230px);
+  line-height: 1;
+  color: rgba(220,225,230,.065);
+  pointer-events: none;
+}
+#patent .patent-label { color: #2878B8 !important; letter-spacing: 4px; }
+#patent .patent-text h2 { color: #e9e9e9; }
+#patent .patent-line { width: 86px; height: 2px; background: #2878B8 !important; }
+#patent .patent-registry {
+  border: 0 !important;
+  border-top: 1px solid rgba(210,215,220,.35) !important;
+  border-bottom: 1px solid rgba(210,215,220,.25) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 16px 0 !important;
+}
+#patent .patent-registry-label { color: #a8b0b9 !important; letter-spacing: 2.7px; }
+
+
+
+#patent .patent-bottomline {
+  border-top: 1px solid rgba(205,210,218,.23) !important;
+  color: #9fa4ad !important;
+}
+@media (max-width: 600px) {
+  #patent .patent-race-mark { top: -23px; right: -6px; font-size: 146px; }
+  #patent .patent-content { padding-top: 84px !important; }
+  
+  
+  #patent .patent-registry { margin-top: 19px; padding: 13px 0 !important; }
+}
+@media (max-width: 600px) and (max-height: 700px) {
+  #patent .patent-content { padding-top: 60px !important; }
+  #patent .patent-race-mark { font-size: 118px; }
+}
+
+/* Refinement: cleaner racing dossier, no oversized 01 */
+#patent .patent-race-mark { display: none !important; }
+#patent .patent-heading { position: relative; }
+#patent .patent-label { font-size: 9px !important; letter-spacing: 2.1px !important; color: #aab5c1 !important; }
+#patent .patent-line { background: #9da8b5 !important; height: 1px !important; width: 96px !important; }
+#patent .patent-registry { border: 0 !important; border-top: 1px solid rgba(215,220,225,.38) !important; border-bottom: 1px solid rgba(215,220,225,.30) !important; background: transparent !important; }
+
+
+
+#patent .patent-speed-stripes { position: absolute; right: 4px; top: 27px; display: flex; gap: 8px; opacity: .5; transform: skew(-24deg); }
+#patent .patent-speed-stripes i { display: block; width: 3px; height: 28px; background: #a4afbc; }
+#patent .patent-speed-stripes i:last-child { background: #2878B8; }
+@media (max-width:600px) {
+ 
+ #patent .patent-speed-stripes { top: 32px; right: 5px; }
+}
+/* PATENT — положение и единый синий цвет */
+
+@media (max-width: 600px) {
+  #patent .patent-document {
+    transform: translateY(-95px) !important;
+  }
+}
+
+/* Верхняя подпись и маленькие надписи */
+#patent .patent-label,
+#patent .patent-topline,
+#patent .patent-registry-label,
+#patent .patent-bottomline {
+  color: #2878B8 !important;
+}
+
+/* Разделители */
+#patent .patent-line,
+#patent .patent-registry,
+#patent .patent-registry::before,
+#patent .patent-registry::after {
+  border-color: #2878B8 !important;
+}
+
+/* Гоночные полоски */
+#patent .racing-stripes,
+#patent .racing-stripes span {
+  color: #2878B8 !important;
+  border-color: #2878B8 !important;
+  background-color: #2878B8 !important;
+}
+
+/* PATENT — Cyrillic paragraphs only; English headings unchanged. */
+#patent .patent-description,
+#patent .patent-warning {
+  font-family: 'Manrope', Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0 !important;
+}
+
+/* PROTECTED NAMES — five names, one row, blue dots at exact midpoints. */
+#patent .patent-names {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  align-items: center !important;
+  gap: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+#patent .patent-names > span {
+  display: block !important;
+  position: relative !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: center !important;
+  font-family: 'Michroma', Arial, sans-serif !important;
+  font-size: 7px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap !important;
+  color: #e0e1e3 !important;
+}
+#patent .patent-names > span::before {
+  content: none !important;
+  display: none !important;
+}
+#patent .patent-names > span::after {
+  content: none !important;
+  display: none !important;
+}
+#patent .patent-names > span:not(:last-child)::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 0 !important;
+  transform: translate(50%, -50%) !important;
+  width: 3px !important;
+  height: 3px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: #2878B8 !important;
+}
+
+#patent .patent-description a, #patent .patent-warning a { color:#2878B8; text-decoration:none; border-bottom:1px solid rgba(40,120,184,.55); }

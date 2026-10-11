@@ -1,0 +1,27 @@
+/* ASPIRAL / CHATS — TRANSFERS. Isolated from all other pages. */
+#transfers.page { align-items: stretch !important; justify-content: center !important; overflow: hidden !important; }
+#transfers .transfers-scroll { width:100%; height:100%; overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#2878B8 #070b11; }
+#transfers .transfers-shell { box-sizing:border-box; width:min(760px,100%); margin:0 auto; padding:125px 35px 90px; color:#e9edf2; }
+#transfers .transfers-eyebrow, #transfers .transfers-kicker { color:#2878B8; font-size:10px; letter-spacing:3px; font-weight:600; }
+#transfers .transfers-chats-title { margin:15px 0 45px; font-family:'Michroma',Arial,sans-serif; font-size:clamp(35px,8vw,65px); font-weight:400; line-height:1.2; letter-spacing:1px; }
+#transfers .transfers-heading-row { display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(40,120,184,.6); padding-top:22px; gap:10px; }
+#transfers .transfers-heading-row h3 { margin:8px 0 0; font-family:'Michroma',Arial,sans-serif; font-size:clamp(21px,5vw,32px); font-weight:400; letter-spacing:0; }
+#transfers .transfers-symbol { font:30px Arial,sans-serif; color:#2878B8; }
+#transfers .transfers-subtitle { margin:14px 0 26px; color:#aab5c2; font:13px 'Manrope',Arial,sans-serif; }
+#transfers .transfers-names { display:flex; align-items:center; justify-content:space-between; gap:4px; padding:15px 0; border-top:1px solid rgba(40,120,184,.55); border-bottom:1px solid rgba(40,120,184,.55); }
+#transfers .transfers-names span { font:400 clamp(6px,1.9vw,10px) 'Michroma',Arial,sans-serif; white-space:nowrap; }
+#transfers .transfers-names i { width:3px;height:3px;border-radius:50%;background:#2878B8;flex:none; }
+#transfers .transfers-rule { padding-top:24px; }
+#transfers .transfers-rule p { margin:0 0 19px; font-family:'Manrope',Arial,sans-serif !important; font-size:13px; line-height:1.8; color:#d2d8df; letter-spacing:0; }
+#transfers .transfers-rule .transfers-example { border-left:2px solid #2878B8; background:rgba(40,120,184,.075); padding:14px 15px; color:#f0f3f8; }
+#transfers .transfers-rule strong { font-weight:600; }
+#transfers .transfers-end { margin-top:30px; border-top:1px solid rgba(40,120,184,.45); padding-top:14px; text-align:right; color:#2878B8; font-size:10px; letter-spacing:2px; }
+@media(max-width:600px) { #transfers .transfers-shell { padding:115px 28px 65px; } #transfers .transfers-chats-title { margin-bottom:32px; } }
+
+/* TRANSFERS first in CHATS dropdown */
+.nav-dropdown .dropdown-menu a.transfers-nav-link {
+  color: #6aabdb !important;
+  border-bottom: 1px solid rgba(40,120,184,.55) !important;
+  padding-bottom: 13px !important;
+  margin-bottom: 7px !important;
+}

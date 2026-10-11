@@ -1,0 +1,29 @@
+/* ERGO — first chat; does not change any other pages. */
+#ergo.page {
+  background-color: #030406 !important;
+  background-image: url("images/-2147483648_-235531.jpg") !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  overflow-y: auto !important;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 30px 45px;
+}
+#ergo .ergo-content { width: min(600px,100%); margin: auto; text-align: left; color:#e9edf2; }
+#ergo .ergo-eyebrow { color:#2878B8; font:600 10px 'Manrope',Arial,sans-serif; letter-spacing:2.3px; margin:0 0 17px; }
+#ergo h2 { margin:0; font:400 clamp(48px,12vw,76px)/1.2 'Michroma',Arial,sans-serif; letter-spacing:1px;
+  background:linear-gradient(180deg,#fff 0%,#e5eaf0 35%,#b7c2ce 70%,#f5f7fa 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.85)); }
+#ergo .ergo-accent { width:78px; height:2px; background:#2878B8; margin:24px 0 38px; }
+#ergo .ergo-type { font:500 16px/1.7 'Manrope',Arial,sans-serif; color:#e2e7ed; margin:0 0 12px; }
+#ergo .ergo-description { font:400 14px/1.7 'Manrope',Arial,sans-serif; color:#b8c3cf; margin:0 0 42px; }
+#ergo .ergo-telegram { display:flex; align-items:center; justify-content:space-between; width:min(330px,100%); min-height:54px; padding:13px 19px;
+  color:#f5f8fc; background:#174a75; border:1px solid #2878B8; text-decoration:none;
+  font:700 15px 'Rajdhani',Arial,sans-serif; letter-spacing:1.3px; transition:background .2s; }
+#ergo .ergo-telegram:hover { background:#205d90; }
+#ergo .ergo-telegram span { font-size:21px; line-height:1; }
+#ergo .ergo-footer { margin:45px 0 0; padding-top:15px; border-top:1px solid rgba(40,120,184,.5); color:#2878B8;
+  font:600 10px 'Manrope',Arial,sans-serif; letter-spacing:2px; }
+@media(max-width:600px) { #ergo.page { padding:110px 30px 55px; } #ergo .ergo-accent { margin:22px 0 34px; } }
